@@ -37,9 +37,10 @@
             <script type="text/javascript">
                 var carte = L.map("map").setView([43.918466289753, 2.145517385159], 9);
                 var tuiles = L.tileLayer(" https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png ").addTo(carte);
-
+                var LayerGroup = L.layerGroup();
 
                 function goToLoca() {
+                    
                     var ville = document.getElementById('recherche').value.split(",");
                     var slug = ville[0].toLowerCase();
                     for (let i = 0; i < slug.length; i++ ) {
@@ -65,7 +66,6 @@
                             console.log(response);
                             var tab = response.split(",");
                             var coordonees = L.latLng(parseFloat(tab[0]), parseFloat(tab[1]));
-                            var mark = L.marker(coordonees).addTo(carte);
                             carte.panTo(coordonees, 10)
                             $.ajax({
                                 type: 'GET',
@@ -73,8 +73,11 @@
                                 data: {gps_lat: parseFloat(tab[0]), gps_lng: parseFloat(tab[1]), ville: slug}
                             })
                             .done(function(response){
-                                LayerGroup = L.layerGroup();
-                                carte.removeLayer(LayerGroup);
+                                if(response){
+                                    LayerGroup.eachLayer(function(layer){
+                                        LayerGroup.removeLayer(layer);
+                                    })
+                                }
                                 var rayon = response.split(";");
                                 var coordonneesRayon;
                                 console.log(rayon.length);
