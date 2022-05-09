@@ -18,9 +18,9 @@ body {
 }
 .autocomplete {
   /*the container must be positioned relative:*/
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
+  position: absolute;
+  /* display: inline-block;
+  vertical-align: middle; */
 
 }
 input {
@@ -69,11 +69,11 @@ button{
 }
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-  background-color: DodgerBlue !important;
+  background-color: red !important;
   color: #ffffff;
 }
 form{
-  background-color: DodgerBlue;
+  background-color: green;
 }
 #conteneur{
   display: flex;
@@ -81,5 +81,13 @@ form{
 h1{
   z-index: 99;
 }
+
+
+
+.recherche{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 
   
