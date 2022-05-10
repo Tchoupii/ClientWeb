@@ -37,7 +37,6 @@ $routes->get('/', 'SigninController::index');
 $routes->get('/signup', 'SignupController::index');
 $routes->get('/signin', 'SigninController::index');
 $routes->get('/carte', 'CarteController::index', ['filter' => 'authGuard']);
-$routes->get('/carte2', 'CarteController2::index');
 $routes->get('/test','CarteController::getVilles');
 $routes->get('/coordonnees', 'CarteController::getCoordonnees');
 $routes->get('/rayon', 'CarteController::getParcours');

@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="assets/css/style.css">
     <meta charset="utf-8">
     <title>Leaflet Map</title>
     <script src="assets\js\autocompletion.js" ></script>
@@ -10,7 +9,13 @@
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="assets\css\style.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/813af80c02.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
 
 </head>
@@ -18,10 +23,11 @@
 <body>
     <div id="conteneur">
         <form onsubmit="return false" autocomplete="off" action="coordonees.php" method="POST">
-            <div class="autocomplete" style="width:300px;">
+                <div id="autocomplete" class="autocomplete">
                 <input id="recherche" type="text" name="ville" placeholder="Entrez le nom d'une ville">
-            </div>
-            <button onclick="goToLoca()">Envoyer</button>
+                </div>
+                <p><i id="icon2" class="fa fa-search fa-lg"></i></p>
+            <button class="recherche" onclick="goToLoca()"><i id="icon" class="fa-solid fa-arrow-right-long fa-lg"></i></button>
             <script type="text/javascript">
                 $.ajax({
                     type: "GET",
