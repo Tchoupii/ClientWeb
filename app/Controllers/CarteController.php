@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use Exception;
+
 class CarteController extends BaseController
 {
     public function index(){
@@ -16,7 +18,7 @@ class CarteController extends BaseController
     }
     public function getCoordonnees(){
         $db = model(CitiesModel::class);
-        $data = $db->query("SELECT GPS_LAT, GPS_LNG FROM CITIES WHERE name ="."'". $_GET['ville']."'"); 
+        $data = $db->query("SELECT GPS_LAT, GPS_LNG FROM CITIES WHERE slug ="."'". $_GET['ville']."'"); 
         foreach($data->getResult() as $row){
            $tab['gps_lat'] = $row->GPS_LAT;
            $tab['gps_lng'] = $row->GPS_LNG;
