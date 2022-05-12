@@ -12,7 +12,7 @@ class CarteController extends BaseController
     public function getVilles(){
         $db = model(CitiesModel::class);
         $data['query'] = $db->findAll();
-        return view('test', ($data));
+        return view('ville', ($data));
         
 
     }
@@ -30,7 +30,7 @@ class CarteController extends BaseController
         $db = model(CitiesModel::class);
         try{
             $i = 0;
-            $data = $db->query("SELECT get_distance_metres(".$_GET['gps_lat'].','.$_GET['gps_lng'].", GPS_LAT,GPS_LNG) AS proximite, SLUG, GPS_LAT, GPS_LNG FROM CITIES HAVING proximite < 20000 ;");
+            $data = $db->query("SELECT get_distance_metres(".$_GET['gps_lat'].','.$_GET['gps_lng'].", GPS_LAT,GPS_LNG) AS proximite, SLUG, GPS_LAT, GPS_LNG FROM CITIES JOIN CLIENT on CITIES.ID = CLIENT.ID_VILLE HAVING proximite < 20000 ;");
             foreach($data->getResult() as $row){
                 $tab['GPS_LAT'][$i] = $row->GPS_LAT;
                 $tab['GPS_LNG'][$i] = $row->GPS_LNG;

@@ -117,6 +117,9 @@
 
     </div>
 </body>
+<footer>
+    <a href="/gestionclient"> Gestion des clients </a>
+</footer>
 
 
 </html>
