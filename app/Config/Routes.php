@@ -40,7 +40,11 @@ $routes->get('/carte', 'CarteController::index', ['filter' => 'authGuard']);
 $routes->get('/ville','CarteController::getVilles');
 $routes->get('/coordonnees', 'CarteController::getCoordonnees');
 $routes->get('/rayon', 'CarteController::getParcours');
-$routes->get('/gestionclient', 'ClientController::index',["as"=>"client"]);
+$routes->get('/creationclient', 'ClientController::indexCreation',["as"=>"clientCreation"]);
+$routes->get('/modificationclient', 'ClientController::indexModification',["as"=>"clientModification"]);
+$routes->get('/gestionclient', 'ClientController::indexGestion',["as"=>"clientGestion"]);
+$routes->get('ClientController/supprimer/(:num)', 'ClientController::supprimer/$1');
+$routes->get('ClientController/modifier/(:num)', 'ClientController::modifier/$1');
 
 
 

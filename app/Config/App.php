@@ -23,7 +23,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://clientleger.local';
+    public $baseURL = 'http://clientweb.local/';
 
     /**
      * --------------------------------------------------------------------------

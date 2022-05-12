@@ -25,7 +25,17 @@
                     $db = model(ClientModel::class);
                     $data['clients'] = $db->findAll();
                     foreach ($data['clients'] as $v) {
-                        echo "<tr><td>".$v['NOM']."</td><td>".$v['PRENOM']."</td><td>".$v['VILLE']."</td><td><button type='button' id='suppression'>Supprimer</button></td><td><button type='button' id='modification'>Modifier</button></td></tr>";
+                        echo "<tr>
+                        <td>".$v['NOM']."</td>
+                        <td>".$v['PRENOM']."</td>
+                        <td>".$v['VILLE']."</td>"?> 
+                        <form method="get">
+                        <td><a href="<?php echo base_url('ClientController/supprimer/'.$v['ID_CLIENT'])?>">Supprimer</a></td>
+                        <td><a href="<?php echo base_url('ClientController/modifier/'.$v['ID_CLIENT'])?>">Modifier</a></td>
+                        </tr> 
+                        </form>
+                        <?php
+
                     }
                     ?>
                 </tbody>
