@@ -21,6 +21,7 @@ class ClientController extends BaseController
 
     }
     public function modifier($id){
+       
         $client = new ClientModel();
         $query = $client->query("SELECT * FROM CLIENT WHERE ID_CLIENT = ". $id);
         foreach($query->getResult() as $row){
