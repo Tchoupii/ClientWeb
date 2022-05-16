@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 use App\Models\ClientModel;
+use App\Models\CitiesModel;
 
 class ClientController extends BaseController
 {
@@ -34,16 +35,45 @@ class ClientController extends BaseController
         return view('modificationclient',$data);
         //echo($id);
     }
-    public function update(){
+    public function update($id){
         $client = new ClientModel();
-        $id = $this->request->getVar('id');
+        $client->find($id);
+        $idville = new CitiesModel();
+        $idville->select('ID');
+        $idville->where('SLUG', $this->request->getVar('ville'));
+        $query = $idville->get();
+        
+        foreach($query->getResult() as $row){
+            $id2 = $row->ID;
+        }
+        
         $data = [
+            "ID_VILLE" => $id2,
             "NOM" => $this->request->getVar('firstname'),
             "PRENOM" => $this->request->getVar('lastname'),
             "VILLE" => $this->request->getVar('ville')
         ];
         $client->update($id, $data);
-        return view('gestionclient');
+        return redirect()->to('/gestionclient');
+    }
+    public function insert(){
+        $client = new ClientModel();
+        $idville = new CitiesModel();
+        $idville->select('ID');
+        $idville->where('SLUG', $this->request->getVar('ville'));
+        $query = $idville->get();
+        
+        foreach($query->getResult() as $row){
+            $id = $row->ID;
+        }
+        $data = [
+            "ID_VILLE" => $id,
+            "NOM" => $this->request->getVar('firstname'),
+            "PRENOM" => $this->request->getVar('lastname'),
+            "VILLE" => $this->request->getVar('ville')
+        ];
+        $client->insert($data);
+        return redirect()->to('/gestionclient');
     }
     
 }

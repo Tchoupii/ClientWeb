@@ -30,7 +30,7 @@
             <script type="text/javascript">
                 $.ajax({
                         type: "GET",
-                        url: '/test'
+                        url: '/ville'
                     })
                     .done(function(response) {
                         console.log(response.split(";"));

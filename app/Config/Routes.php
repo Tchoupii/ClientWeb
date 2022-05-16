@@ -45,6 +45,9 @@ $routes->get('/modificationclient', 'ClientController::indexModification',["as"=
 $routes->get('/gestionclient', 'ClientController::indexGestion',["as"=>"clientGestion"]);
 $routes->get('ClientController/supprimer/(:num)', 'ClientController::supprimer/$1');
 $routes->get('ClientController/modifier/(:num)', 'ClientController::modifier/$1');
+$routes->get('ClientController/update/(:num)', 'ClientController::update/$1');
+$routes->get('ClientController/insert', 'ClientController::insert');
+
 
 
 

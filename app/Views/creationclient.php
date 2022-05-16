@@ -9,25 +9,27 @@
     <title>Création du client</title>
 </head>
 <body>
-<div class="form">
+  <form action="<?php echo base_url('ClientController/insert'); ?>"method="post">
+  <div class="form">
       <div class="title">Créer un client</div>
       <div class="input-container ic1">
-        <input id="firstname" class="input" type="text" placeholder=" " />
+        <input name="firstname" class="input" type="text" placeholder=" " />
         <div class="cut"></div>
         <label for="firstname" class="placeholder">Prénom</label>
       </div>
       <div class="input-container ic2">
-        <input id="lastname" class="input" type="text" placeholder=" " />
+        <input name="lastname" class="input" type="text" placeholder=" " />
         <div class="cut"></div>
         <label for="lastname" class="placeholder">Nom</label>
       </div>
       <div class="input-container ic2">
-        <input id="ville" class="input" type="text" placeholder=" " />
+        <input name="ville" class="input" type="text" placeholder=" " />
         <div class="cut cut-short"></div>
         <label for="ville" class="placeholder">Ville</>
       </div>
       <button type="text" class="submit">Créer</button>
     </div>
-    
+</form>
+
 </body>
 </html>

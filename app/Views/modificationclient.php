@@ -10,22 +10,22 @@
 </head>
 
 <body>
-    <form action="<?php echo base_url('ClientController/update'); ?>" method="post">
+    <form action="<?php echo base_url('ClientController/update/'.$id); ?>" method="post">
         <div class="form">
             <div class="title">Modifier un client</div>
-            <input hidden id="id" class="input" type="text" value="<?php if(!empty($id)){echo $id;} ?>" />
+            <input hidden name="id" class="input" type="text" value="<?php if(!empty($id)){echo $id;} ?>" />
             <div class="input-container ic1">
-                <input id="firstname" class="input" type="text" value="<?php if(!empty($nom)){echo $nom;} ?>" />
+                <input name="firstname" class="input" type="text" value="<?php if(!empty($nom)){echo $nom;} ?>" />
                 <div class="cut"></div>
                 <label for="firstname" class="placeholder">Prénom</label>
             </div>
             <div class="input-container ic2">
-                <input id="lastname" class="input" type="text" value="<?php if(!empty($nom)){echo $prenom;} ?>" />
+                <input name="lastname" class="input" type="text" value="<?php if(!empty($nom)){echo $prenom;} ?>" />
                 <div class="cut"></div>
                 <label for="lastname" class="placeholder">Nom</label>
             </div>
             <div class="input-container ic2">
-                <input id="ville" class="input" type="text" value="<?php if(!empty($nom)){echo $ville;} ?>" />
+                <input name="ville" class="input" type="text" value="<?php if(!empty($nom)){echo $ville;} ?>" />
                 <div class="cut cut-short"></div>
                 <label for="ville" class="placeholder">Ville</>
             </div>

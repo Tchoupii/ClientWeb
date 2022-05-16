@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/Tableau.css">
-    <title>Document</title>
+    <link rel="stylesheet"  href="<?php echo base_url(); ?>/assets/css/Tableau.css">
+    <title>Gestion des clients </title>
 </head>
 
 <body>
-    <h2 id="creationclient">Gestion des clients</h2>
+    <h2 id="gestionclient">Gestion des clients</h2>
         <div>
             <div class="tableau">
             <table class="table">
@@ -41,7 +41,9 @@
                 </tbody>
                 
             </table>
+            
             </div>
+            <a href="<?php echo base_url('creationclient')?>"><h2 id="creationclient">Créer nouveau client </h2></a>
         </div>
     </form>
 </body>
