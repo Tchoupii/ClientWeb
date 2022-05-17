@@ -36,13 +36,17 @@ class ClientController extends BaseController
         //echo($id);
     }
     public function update($id){
+        $ville = strtolower($this->request->getVar('ville'));
+        $arrayReplace = array(" "," ", "e");
+        $searchVal = array("'", "-", "è", "é");
+        $slug = str_replace($searchVal, $arrayReplace, $ville);
+        echo $slug;
         $client = new ClientModel();
         $client->find($id);
         $idville = new CitiesModel();
         $idville->select('ID');
-        $idville->where('SLUG', $this->request->getVar('ville'));
-        $query = $idville->get();
-        
+        $idville->where('SLUG', $slug);
+        $query = $idville->get(); 
         foreach($query->getResult() as $row){
             $id2 = $row->ID;
         }
@@ -57,10 +61,15 @@ class ClientController extends BaseController
         return redirect()->to('/gestionclient');
     }
     public function insert(){
+        $ville = strtolower($this->request->getVar('ville'));
+        $arrayReplace = array(" "," ", "e");
+        $searchVal = array("'", "-", "è", "é");
+        $slug = str_replace($searchVal, $arrayReplace, $ville);
+        echo $slug;
         $client = new ClientModel();
         $idville = new CitiesModel();
         $idville->select('ID');
-        $idville->where('SLUG', $this->request->getVar('ville'));
+        $idville->where('SLUG', $ville);
         $query = $idville->get();
         
         foreach($query->getResult() as $row){

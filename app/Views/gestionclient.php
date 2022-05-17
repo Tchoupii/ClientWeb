@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <h2 id="gestionclient">Gestion des clients</h2>
+    <h1 id="gestionclient">Gestion des clients</h1>
+    <a href="<?php echo base_url('carte'); ?>"><h2 id="carte">Retour à la carte</h2></a>
         <div>
             <div class="tableau">
             <table class="table">
@@ -26,8 +27,8 @@
                     $data['clients'] = $db->findAll();
                     foreach ($data['clients'] as $v) {
                         echo "<tr>
-                        <td>".$v['NOM']."</td>
                         <td>".$v['PRENOM']."</td>
+                        <td>".$v['NOM']."</td>
                         <td>".$v['VILLE']."</td>"?> 
                         <form method="get">
                         <td><a href="<?php echo base_url('ClientController/supprimer/'.$v['ID_CLIENT'])?>">Supprimer</a></td>

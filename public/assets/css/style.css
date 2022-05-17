@@ -73,7 +73,9 @@ input#recherche{
   color: rgb(85, 85, 180);
 
 }
-h2#creationclient{
-  text-align: center;
-}
 
+h2#gestion{
+  position: absolute;
+  text-align: center;
+  left: 45%;
+}
