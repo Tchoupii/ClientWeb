@@ -69,7 +69,7 @@ class ClientController extends BaseController
         $client = new ClientModel();
         $idville = new CitiesModel();
         $idville->select('ID');
-        $idville->where('SLUG', $ville);
+        $idville->where('SLUG', $slug);
         $query = $idville->get();
         
         foreach($query->getResult() as $row){
